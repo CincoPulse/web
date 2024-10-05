@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Button, Segment, Dropdown, Menu, Header, Icon } from 'semantic-ui-react';
+import { Button, Segment, Dropdown, Menu } from 'semantic-ui-react';
 import useStore from './Store';
 import quakeData from './data/QuakeDB.json';
 import QuakeInfoBar from './QuakeInfoBar';
@@ -8,8 +8,8 @@ export default function ControlPanel() {
   const [selectedDay, setSelectedDay] = useState(null);
   const [days, setDays] = useState([]);
 
-  const view = useStore(state => state.view);
-  const changeView = useStore(state => state.changeView);
+  // const view = useStore(state => state.view);
+  // const changeView = useStore(state => state.changeView);
 
   const selectedYear = useStore(state => state.year);
   const selectedDDay = useStore(state => state.day);
@@ -53,18 +53,8 @@ export default function ControlPanel() {
   }
 
   return (
-    <div style={{ display: 'flex' }}>
-      <Header as="h2" color="white">
-        <Icon name="settings" style={{ color: 'white' }} />
-        <Header.Content style={{ color: 'white' }}>
-          &lt;Control_Panel&gt;
-          <Header.Subheader style={{ color: 'white', marginRight: '20px', fontSize: '20px' }}>
-            Select the Year and Day of MoonQuake
-          </Header.Subheader>
-        </Header.Content>
-      </Header>
-
-      <div style={{ paddingRight: '200px', display: 'flex' }}>
+    <div className="h-24 flex items-center">
+      <div className="pl-10 flex">
         <Menu compact>
           <Dropdown
             text={selectedYear || 'Select Year'}
@@ -73,7 +63,6 @@ export default function ControlPanel() {
             selection
             style={{ backgroundColor: 'black', color: 'white' }}
             onChange={handleYearChange}
-            disabled={isPlaying}
             title="Select The Year"
           />
         </Menu>
@@ -85,7 +74,6 @@ export default function ControlPanel() {
             options={days}
             onChange={handleDayChange}
             style={{ backgroundColor: 'black', color: 'white' }}
-            disabled={!selectedYear}
           />
         </Menu>
         <Segment inverted style={{ background: 'black' }}>

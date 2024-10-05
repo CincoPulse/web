@@ -5,11 +5,10 @@ import quakeData from './data/QuakeDB.json';
 
 import useStore from './Store';
 
-export default function Model({ camRef }) {
+export default function Model() {
   const props = {};
 
   const selectedYear = useStore(state => state.year);
-  const isPlaying = useStore(state => state.isPlaying);
   const selectedDay = useStore(state => state.day);
 
   const quake = quakeData.find(item => item.year == selectedYear && item.day == selectedDay);
@@ -24,7 +23,9 @@ export default function Model({ camRef }) {
 
   useFrame(() => {
     group.current.lookAt(0, 0, 0);
-    camRef.current.position.set(quake.longitude * 0.02, quake.latitude * 0.023, 1.7);
+
+    // disable lock to position
+    // camRef.current.position.set(quake.longitude * 0.02, quake.latitude * 0.023, 1.7);
   }, []);
 
   let r = quake.magnitude < 1 ? 1.99 : 1.97;

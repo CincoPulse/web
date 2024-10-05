@@ -1,22 +1,16 @@
-// Importing necessary React components and hooks from external libraries (drei)
 import { useLoader } from '@react-three/fiber';
 import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
 import React, { useRef } from 'react';
 import * as three from 'three';
-
-// Import quake wave model
 import Model from './QuakeWave';
-
-// Import the custom store
 import useStore from './Store';
 
-// Define Experience component
-export default function Experience({ hasStarted }) {
+export default function Experience() {
   const groupRef = useRef();
 
   const view = useStore(state => state.view);
-  const year = useStore(state => state.year);
-  const day = useStore(state => state.day);
+  // const year = useStore(state => state.year);
+  // const day = useStore(state => state.day);
 
   const isPlaying = useStore(state => state.isPlaying);
   const cameraRef = useRef();
@@ -26,11 +20,11 @@ export default function Experience({ hasStarted }) {
 
   return (
     <>
-      <PerspectiveCamera makeDefault position={[0, 0, 4]} ref={cameraRef} />
+      <PerspectiveCamera makeDefault position={[0, 4, 2]} ref={cameraRef} />
 
       <OrbitControls
         enableZoom={true}
-        minDistance={1.2}
+        minDistance={2}
         maxDistance={7}
         enablePan={true}
         autoRotate={false}

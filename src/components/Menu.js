@@ -13,7 +13,7 @@ const MenuItem = ({ option }) => {
     <HMenuItem>
       {({ focus }) => {
         const className = classNames(
-          'group flex w-full items-center rounded-md p-2 text-sm',
+          'group flex w-full items-center rounded-md p-2 text-sm text-black',
           focus && 'bg-gray-200'
         );
 
@@ -31,7 +31,7 @@ const MenuItemChildren = ({ option, focus }) => {
   return (
     <>
       {option.icon ? (
-        <span className={classNames('size-4 text-elSecondary', focus && 'text-white')}>
+        <span className={classNames('size-4 text-elSecondary', focus && 'text-black')}>
           {option.icon}
         </span>
       ) : null}

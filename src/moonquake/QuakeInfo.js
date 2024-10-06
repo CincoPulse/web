@@ -1,3 +1,5 @@
+'use client';
+
 import quakeData from './data/QuakeDB.json';
 import useStore from './Store';
 import classNames from 'classnames';

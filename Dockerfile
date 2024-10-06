@@ -1,13 +1,19 @@
-FROM node:18-alpine
+FROM node:18-alpine AS deps
 
+RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
-COPY . .
+COPY package.json pnpm-lock.yaml* ./
 RUN npm install -g pnpm
 RUN pnpm install
+
+ENV NEXT_TELEMETRY_DISABLED 1
+ENV NODE_ENV production
+ENV PORT 3003
+
+COPY . .
 RUN pnpm build
 
-ENV PORT=3003
 EXPOSE 3003
 
 CMD ["pnpm", "start"]

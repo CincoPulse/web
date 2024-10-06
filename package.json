@@ -1,63 +1,30 @@
 {
-  "build": "CI=false react-scripts build",
-  "name": "41-first-react-app",
+  "name": "moonquake",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
   "dependencies": {
     "@headlessui/react": "^2.1.9",
-    "@react-three/drei": "9.32",
-    "@react-three/fiber": "8.8",
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "classnames": "^2.5.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
+    "react": "^18",
+    "react-dom": "^18",
+    "next": "14.2.14",
     "semantic-ui-css": "^2.5.0",
     "semantic-ui-react": "^2.1.4",
     "three": "^0.145.0",
     "web-vitals": "^2.1.4",
     "zustand": "^4.4.3",
-    "@heroicons/react": "^2.1.5"
-  },
-  "jest": {
-    "moduleFileExtensions": [
-      "js",
-      "jsx"
-    ],
-    "transform": {
-      "^.+\\.(js|jsx)$": "babel-jest"
-    },
-    "testEnvironment": "jsdom"
-  },
-  "scripts": {
-    "start": "PORT=3003 react-scripts start",
-    "start:prod": "PORT=3003 NODE_ENV=production react-scripts start",
-    "build": "react-scripts build",
-    "build:prod": "NODE_ENV=production react-scripts build",
-    "test": "jest",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "@heroicons/react": "^2.1.5",
+    "classnames": "^2.5.1",
+    "@react-three/drei": "9.32",
+    "@react-three/fiber": "8.8"
   },
   "devDependencies": {
-    "tailwindcss": "^3.4.13"
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1"
   }
 }

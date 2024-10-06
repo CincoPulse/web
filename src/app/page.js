@@ -1,10 +1,12 @@
+'use client';
+
 import React from 'react';
 import { Canvas } from '@react-three/fiber';
-import { Experience } from './Experience';
-import { ControlPanel } from './ControlPanel';
-import { QuakeInfo } from './QuakeInfo';
+import { QuakeInfo } from '../moonquake/QuakeInfo';
+import { Experience } from '../moonquake/Experience';
+import { ControlPanel } from '../moonquake/ControlPanel';
 
-export default function App() {
+export default function Home() {
   return (
     <div className="relative h-full bg-black">
       <QuakeInfo />

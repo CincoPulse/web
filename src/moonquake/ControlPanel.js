@@ -1,8 +1,10 @@
+'use client';
+
 import { useState, useEffect } from 'react';
 import useStore from './Store';
 import quakeData from './data/QuakeDB.json';
-import { Menu } from './components/Menu';
-import { Button } from './components/Button';
+import { Menu } from '../components/Menu';
+import { Button } from '../components/Button';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
 
 const years = [...new Set(quakeData.map(item => item.year))];

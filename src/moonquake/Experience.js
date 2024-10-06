@@ -1,3 +1,5 @@
+'use client';
+
 import { useLoader } from '@react-three/fiber';
 import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
 import React, { useRef } from 'react';
@@ -15,8 +17,8 @@ export const Experience = () => {
   const isPlaying = useStore(state => state.isPlaying);
   const cameraRef = useRef();
 
-  const moonTexture = useLoader(three.TextureLoader, '/assets/moonTexture.jpg');
-  const heightMapTexture = useLoader(three.TextureLoader, '/assets/height.jpg');
+  const moonTexture = useLoader(three.TextureLoader, 'moonTexture.jpg');
+  const heightMapTexture = useLoader(three.TextureLoader, 'height.jpg');
 
   return (
     <>

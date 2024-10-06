@@ -13,7 +13,7 @@ export const Model = ({ camRef }) => {
   const quake = quakeData.find(item => item.year === selectedYear && item.day === selectedDay);
 
   const group = useRef();
-  const { nodes, materials, animations } = useGLTF('/assets/wave.glb');
+  const { nodes, materials, animations } = useGLTF('wave.glb');
   const { actions } = useAnimations(animations, group);
 
   let r = quake.magnitude < 1 ? 1.99 : 1.97;
@@ -101,4 +101,4 @@ export const Model = ({ camRef }) => {
 };
 
 // Preload the wave glTF model
-useGLTF.preload('/assets/wave.glb');
+useGLTF.preload('wave.glb');

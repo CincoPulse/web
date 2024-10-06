@@ -2,10 +2,10 @@ import { useLoader } from '@react-three/fiber';
 import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
 import React, { useRef } from 'react';
 import * as three from 'three';
-import Model from './QuakeWave';
+import { Model } from './QuakeWave';
 import useStore from './Store';
 
-export default function Experience() {
+export const Experience = () => {
   const groupRef = useRef();
 
   const view = useStore(state => state.view);
@@ -43,4 +43,4 @@ export default function Experience() {
       </group>
     </>
   );
-}
+};

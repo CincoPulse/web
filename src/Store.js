@@ -4,9 +4,9 @@ const useStore = create(set => ({
   view: true,
   changeView: () => set(state => ({ view: !state.view })),
   year: '1971',
-  handleYearChange: (event, data) => set(state => ({ year: data.value })),
+  handleYearChange: value => set(() => ({ year: value })),
   day: '107',
-  handleDayChange: (event, data) => set(state => ({ day: data.value })),
+  handleDayChange: value => set(() => ({ day: value })),
   isPlaying: 'false',
   handlePlaying: () => set(state => ({ isPlaying: !state.isPlaying })),
 }));

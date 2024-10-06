@@ -1,7 +1,7 @@
 import React from 'react';
 import { Canvas } from '@react-three/fiber';
-import Experience from './Experience';
-import ControlPanel from './ControlPanel';
+import { Experience } from './Experience';
+import { ControlPanel } from './ControlPanel';
 
 export default function App() {
   return (

@@ -4,6 +4,7 @@ import quakeData from './data/QuakeDB.json';
 import classNames from 'classnames';
 import { Menu } from './components/Menu';
 import { Button } from './components/Button';
+import { ChevronDownIcon } from '@heroicons/react/20/solid';
 
 export const ControlPanel = () => {
   const [selectedDay, setSelectedDay] = useState(null);
@@ -53,30 +54,36 @@ export const ControlPanel = () => {
 
   return (
     <div className="h-24 flex items-center">
-      <div className="pl-10 flex">
+      <div className="pl-10 flex gap-2">
         <Menu
-          className="h-8"
           anchor="top start"
           options={years.map(e => ({
             label: e,
             onClick: () => handleYearChange(e),
           }))}
         >
-          <div className="px-4 py-1 border">Select The Year</div>
+          <div className="py-1 px-2 border border-gray-400 rounded-md flex items-center gap-2">
+            Select The Year
+            <ChevronDownIcon className="w-4 h-4" />
+          </div>
         </Menu>
 
         <Menu
-          className="h-8"
           anchor="top start"
           options={days.map(e => ({
             label: e,
             onClick: () => handleDayChange(e),
           }))}
         >
-          <div className="px-4 py-1 border">Select Day</div>
+          <div className="py-1 px-2 border border-gray-400 rounded-md flex items-center gap-2">
+            Select Day
+            <ChevronDownIcon className="w-4 h-4" />
+          </div>
         </Menu>
 
-        <Button onClick={handlePlaying}>{!isPlaying ? 'Play Now' : 'Stop Playing'}</Button>
+        <Button size="s" onClick={handlePlaying}>
+          {!isPlaying ? 'Play Now' : 'Stop Playing'}
+        </Button>
       </div>
       {isPlaying && <QuakeInfoBar quake={quake} isPlaying={isPlaying} />}
     </div>

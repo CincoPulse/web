@@ -1,27 +1,17 @@
 import { useState, useEffect } from 'react';
 import useStore from './Store';
 import quakeData from './data/QuakeDB.json';
-import classNames from 'classnames';
 import { Menu } from './components/Menu';
 import { Button } from './components/Button';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
 
+const years = [...new Set(quakeData.map(item => item.year))];
+
 export const ControlPanel = () => {
-  const [selectedDay, setSelectedDay] = useState(null);
   const [days, setDays] = useState([]);
 
-  // const view = useStore(state => state.view);
-  // const changeView = useStore(state => state.changeView);
-
   const selectedYear = useStore(state => state.year);
-  const selectedDDay = useStore(state => state.day);
-
   const isPlaying = useStore(state => state.isPlaying);
-
-  const quake = quakeData.find(item => item.year === selectedYear && item.day === selectedDDay);
-
-  const years = [...new Set(quakeData.map(item => item.year))];
-
   const handleYearChange = useStore(state => state.handleYearChange);
   const handleDayChangeActual = useStore(state => state.handleDayChange);
   const handlePlaying = useStore(state => state.handlePlaying);
@@ -29,7 +19,6 @@ export const ControlPanel = () => {
   useEffect(() => {
     if (!selectedYear) {
       setDays([]);
-      setSelectedDay(null);
       return;
     }
 
@@ -38,85 +27,46 @@ export const ControlPanel = () => {
 
     setDays(uniqueDays);
     if (!uniqueDays.length) {
-      setSelectedDay(null);
       handleDayChangeActual(null);
       return;
     }
 
-    setSelectedDay(uniqueDays[0]);
     handleDayChangeActual(uniqueDays[0]);
   }, [selectedYear, handleDayChangeActual]);
 
   const handleDayChange = value => {
-    setSelectedDay(value);
     handleDayChangeActual(value);
   };
 
   return (
-    <div className="h-24 flex items-center">
-      <div className="pl-10 flex gap-2">
-        <Menu
-          anchor="top start"
-          options={years.map(e => ({
-            label: e,
-            onClick: () => handleYearChange(e),
-          }))}
-        >
-          <div className="py-1 px-2 border border-gray-400 rounded-md flex items-center gap-2">
-            Select The Year
-            <ChevronDownIcon className="w-4 h-4" />
-          </div>
-        </Menu>
-
-        <Menu
-          anchor="top start"
-          options={days.map(e => ({
-            label: e,
-            onClick: () => handleDayChange(e),
-          }))}
-        >
-          <div className="py-1 px-2 border border-gray-400 rounded-md flex items-center gap-2">
-            Select Day
-            <ChevronDownIcon className="w-4 h-4" />
-          </div>
-        </Menu>
-
-        <Button size="s" onClick={handlePlaying}>
-          {!isPlaying ? 'Play Now' : 'Stop Playing'}
-        </Button>
-      </div>
-      {isPlaying && <QuakeInfoBar quake={quake} isPlaying={isPlaying} />}
-    </div>
-  );
-};
-
-const QuakeInfoBar = ({ quake, isPlaying }) => {
-  if (!quake) {
-    return null;
-  }
-
-  return (
-    <div className="flex">
-      <div className="flex">
-        <p>Quake Info |</p>
-
-        <div className={classNames('text-sm pl-2', isPlaying ? 'block' : 'none')}>
-          Time of Quake(HH:MM:SS): {quake.hour}: {quake.minute}: {quake.seconds}
-          <br />
-          Lunar Coordinates(Lat.,Long.): {quake.latitude}, {quake.longitude}
+    <div className="h-24 pl-10 flex gap-2 items-center">
+      <Menu
+        anchor="top start"
+        options={years.map(e => ({
+          label: e,
+          onClick: () => handleYearChange(e),
+        }))}
+      >
+        <div className="py-1 px-2 border border-gray-400 rounded-md flex items-center gap-2">
+          Select The Year
+          <ChevronDownIcon className="w-4 h-4" />
         </div>
-      </div>
+      </Menu>
 
-      <div className="flex px-2">
-        <h2>|</h2>
-        <div className={classNames('text-sm pl-2', isPlaying ? 'block' : 'none')}>
-          Magnitude: {quake.magnitude}
-          <br />
-          Year: {quake.year}
-          <br />
-          Day: {quake.day}th Earth Day
+      <Menu
+        anchor="top start"
+        options={days.map(e => ({
+          label: e,
+          onClick: () => handleDayChange(e),
+        }))}
+      >
+        <div className="py-1 px-2 border border-gray-400 rounded-md flex items-center gap-2">
+          Select Day
+          <ChevronDownIcon className="w-4 h-4" />
         </div>
-      </div>
+      </Menu>
+
+      <Button onClick={handlePlaying}>{!isPlaying ? 'Play Now' : 'Stop Playing'}</Button>
     </div>
   );
 };

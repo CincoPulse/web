@@ -16,23 +16,25 @@ export const QuakeInfo = () => {
   }
 
   return (
-    <div className="absolute right-4 top-4 bg-secondaryDark p-4 rounded-md overflow-visible z-10">
-      <div className="flex justify-center">
-        <p className="flex self-center text-lg">Quake Info</p>
-      </div>
+    <div className="px-2 pt-2 md:p-0">
+      <div className="bg-secondaryDark p-2 md:p-4 rounded-md md:z-10 md:absolute md:right-4 md:top-4">
+        <div className="flex justify-center">
+          <p className="flex self-center md:text-lg">Quake Info</p>
+        </div>
 
-      <div className="text-sm pl-2">
-        Time of Quake(HH:MM:SS): {quake.hour}:{quake.minute}:{quake.seconds}
-        <br />
-        Lunar Coordinates(Lat,Lng.): {quake.latitude}, {quake.longitude}
-      </div>
+        <div className="text-sm pl-2">
+          Time of Quake(HH:MM:SS): {quake.hour}:{quake.minute}:{quake.seconds}
+          <br />
+          Lunar Coordinates(Lat,Lng.): {quake.latitude}, {quake.longitude}
+        </div>
 
-      <div className={classNames('text-sm pl-2', isPlaying ? 'block' : 'none')}>
-        Magnitude: {quake.magnitude}
-        <br />
-        Year: {quake.year}
-        <br />
-        Day: {quake.day}th Earth Day
+        <div className={classNames('text-sm pl-2', isPlaying ? 'block' : 'none')}>
+          Magnitude: {quake.magnitude}
+          <br />
+          Year: {quake.year}
+          <br />
+          Day: {quake.day}th Earth Day
+        </div>
       </div>
     </div>
   );

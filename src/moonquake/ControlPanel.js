@@ -41,7 +41,7 @@ export const ControlPanel = () => {
   };
 
   return (
-    <div className="p-4 flex gap-2 items-center">
+    <div className="p-2 md:p-4 flex flex-wrap gap-2 items-center">
       <Menu
         anchor="top start"
         options={years.map(e => ({
@@ -49,7 +49,7 @@ export const ControlPanel = () => {
           onClick: () => handleYearChange(e),
         }))}
       >
-        <div className="py-1 px-2 border border-gray-400 rounded-md flex items-center gap-2">
+        <div className="py-1 px-2 border border-gray-400 rounded-md flex items-center gap-2 text-sm">
           Select The Year
           <ChevronDownIcon className="w-4 h-4" />
         </div>
@@ -62,7 +62,7 @@ export const ControlPanel = () => {
           onClick: () => handleDayChange(e),
         }))}
       >
-        <div className="py-1 px-2 border border-gray-400 rounded-md flex items-center gap-2">
+        <div className="py-1 px-2 border border-gray-400 rounded-md flex items-center gap-2 text-sm">
           Select Day
           <ChevronDownIcon className="w-4 h-4" />
         </div>

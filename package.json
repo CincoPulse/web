@@ -32,8 +32,10 @@
     "testEnvironment": "jsdom"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=3003 react-scripts start",
+    "start:prod": "PORT=3003 NODE_ENV=production react-scripts start",
     "build": "react-scripts build",
+    "build:prod": "NODE_ENV=production react-scripts build",
     "test": "jest",
     "eject": "react-scripts eject"
   },

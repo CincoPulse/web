@@ -17,8 +17,8 @@ export const Experience = () => {
   const isPlaying = useStore(state => state.isPlaying);
   const cameraRef = useRef();
 
-  const moonTexture = useLoader(three.TextureLoader, 'moonTexture.jpg');
-  const heightMapTexture = useLoader(three.TextureLoader, 'height.jpg');
+  const moonTexture = useLoader(three.TextureLoader, '/moonquake/moonTexture.jpg');
+  const heightMapTexture = useLoader(three.TextureLoader, '/moonquake/height.jpg');
 
   return (
     <>

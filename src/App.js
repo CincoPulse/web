@@ -6,15 +6,14 @@ import { QuakeInfo } from './QuakeInfo';
 
 export default function App() {
   return (
-    <>
-      <div style={{ backgroundColor: 'black', display: 'flex' }}>
-        <ControlPanel />
+    <div className="relative h-full bg-black">
+      <QuakeInfo />
 
-        <QuakeInfo />
-      </div>
-      <Canvas style={{ backgroundColor: 'black' }}>
+      <ControlPanel />
+
+      <Canvas className="bg-black">
         <Experience />
       </Canvas>
-    </>
+    </div>
   );
 }

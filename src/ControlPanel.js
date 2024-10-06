@@ -39,7 +39,7 @@ export const ControlPanel = () => {
   };
 
   return (
-    <div className="h-24 pl-10 flex gap-2 items-center">
+    <div className="p-4 flex gap-2 items-center">
       <Menu
         anchor="top start"
         options={years.map(e => ({

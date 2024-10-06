@@ -10,7 +10,7 @@ export const Button = forwardRef(
       className: cn(
         {
           'bg-secondary': variant === 'secondary',
-          'hover:bg-secondaryHover transition-colors text-textPrimary':
+          'hover:bg-secondaryHover transition-colors text-white':
             variant === 'secondary' && !props.disabled,
           'text-textSecondary': variant === 'secondary' && props.disabled,
           'bg-transparent hover:bg-transparent': variant === 'transparent',

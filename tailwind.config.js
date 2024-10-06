@@ -18,8 +18,9 @@ module.exports = {
         textPrimary: '#121312',
         textSecondary: '#8f8e93',
 
-        secondary: '#99E515',
-        secondaryHover: '#8BD013',
+        secondary: '#2563eb',
+        secondaryHover: '#3b82f6',
+        secondaryDark: '#172554',
       },
     },
   },

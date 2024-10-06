@@ -1,8 +1,7 @@
-version: "3"
-
 services:
   web:
     container_name: web
     build:
+      context: .
     ports:
       - 3003:3003
